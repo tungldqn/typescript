@@ -20,3 +20,4 @@ const combinedStringAges = combine('30', '26', 'as-number');
 console.log(combinedStringAges);
 const combinedNames = combine("Duy", "Tung", 'as-text');
 console.log(combinedNames);
+//# sourceMappingURL=objs-arrays-enums.js.map
