@@ -7,3 +7,23 @@ function clickHandler(message: string) {
 if (button) {
   button.addEventListener('click', clickHandler.bind(null, 'Hello'));
 }
+
+class Department {
+  name: string;
+
+  constructor(n: string) {
+    this.name = n;
+  }
+
+  describe() {
+    console.log('Department ' + this.name);
+  }
+}
+
+const  account = new Department('Accounting');
+
+console.log(account);
+account.describe();
+
+const accountCopy = { name: 'Test', describe: account.describe };
+accountCopy.describe();
