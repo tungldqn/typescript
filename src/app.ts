@@ -13,7 +13,7 @@ class Department {
   // private name: string;
   private employees: string[] = [];
 
-  constructor(private id: string, public name: string) {
+  constructor(private readonly id: string, public name: string) {
     
   }
 
