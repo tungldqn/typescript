@@ -9,7 +9,8 @@ if (button) {
 }
 
 class Department {
-  name: string;
+  public name: string;
+  private employees: string[] = [];
 
   constructor(n: string) {
     this.name = n;
@@ -18,12 +19,23 @@ class Department {
   describe() {
     console.log('Department ' + this.name);
   }
+
+  addEmployee(employee: string) {
+    this.employees.push(employee);
+  }
+
+  printEmployeeInformation() {
+    console.log(this.employees.length);
+    console.log(this.employees);
+  }
 }
 
 const  account = new Department('Accounting');
 
-console.log(account);
-account.describe();
+account.addEmployee('Tung');
+// account.employees[1] = 'Test';
+account.name = 'New name';
+account.printEmployeeInformation();
 
 const accountCopy = { name: 'Test', describe: account.describe };
 accountCopy.describe();
