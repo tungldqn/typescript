@@ -11,7 +11,7 @@ if (button) {
 class Department {
   // private id: string;
   // private name: string;
-  private employees: string[] = [];
+  protected employees: string[] = [];
 
   constructor(private readonly id: string, public name: string) {
     
@@ -26,16 +26,15 @@ class Department {
   }
 
   printEmployeeInformation() {
-    console.log(this.employees.length);
     console.log(this.employees);
   }
 }
 
 const account = new Department('a1', 'Accounting');
 
-// account.addEmployee('Tung');
+account.addEmployee('Hoa');
 // // account.employees[1] = 'Test';
-// account.printEmployeeInformation();
+account.printEmployeeInformation();
 account.describe();
 
 class ItDepartment extends Department {
@@ -54,6 +53,13 @@ class AccountingDepartment extends Department {
     super(id, name);
   }
 
+  addEmployee(name: string) {
+    if (name === 'Max') {
+      return;
+    }
+    this.employees.push(name);
+  }
+
   addReport(text: string) {
     this.reports.push(text);
   }
@@ -64,6 +70,7 @@ class AccountingDepartment extends Department {
 }
 
 const accounting = new AccountingDepartment('a3', 'account', ['report1']);
-accounting.addReport('report2')
+accounting.addReport('report2');
+accounting.addEmployee('Tung');
 accounting.printReports();
 console.log(accounting);
