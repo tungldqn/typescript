@@ -12,9 +12,16 @@ class Department {
   // private id: string;
   // private name: string;
   protected employees: string[] = [];
+  static fiscalYear = 2020;
 
   constructor(private readonly id: string, public name: string) {
     
+  }
+
+  static createEmployee(name: string) {
+    return {
+      name
+    }
   }
 
   describe() {
@@ -44,7 +51,11 @@ class ItDepartment extends Department {
   }
 }
 
+const employee1 = Department.createEmployee('Tung');
+console.log(employee1, Department.fiscalYear);
+
 const ItAccount = new ItDepartment('a2', 'it', ['tung']);
+
 ItAccount.describe();
 console.log(ItAccount);
 
