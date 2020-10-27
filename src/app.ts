@@ -8,13 +8,13 @@ if (button) {
   button.addEventListener('click', clickHandler.bind(null, 'Hello'));
 }
 
-class Department {
+abstract class Department {
   // private id: string;
   // private name: string;
   protected employees: string[] = [];
   static fiscalYear = 2020;
 
-  constructor(private readonly id: string, public name: string) {
+  constructor(protected readonly id: string, public name: string) {
     
   }
 
@@ -24,9 +24,7 @@ class Department {
     }
   }
 
-  describe() {
-    console.log(`Department ${this.id}: ${this.name}`);
-  }
+  abstract describe(this: Department): void;
 
   addEmployee(employee: string) {
     this.employees.push(employee);
@@ -37,17 +35,21 @@ class Department {
   }
 }
 
-const account = new Department('a1', 'Accounting');
+// const account = new Department('a1', 'Accounting');
 
-account.addEmployee('Hoa');
-// // account.employees[1] = 'Test';
-account.printEmployeeInformation();
-account.describe();
+// account.addEmployee('Hoa');
+// // // account.employees[1] = 'Test';
+// account.printEmployeeInformation();
+// account.describe();
 
 class ItDepartment extends Department {
 
   constructor(id: string, name: string, private admins: string[]) {
     super(id, name);
+  }
+
+  describe() {
+    console.log('IT Department - ID ' + this.id);
   }
 }
 
@@ -81,6 +83,10 @@ class AccountingDepartment extends Department {
     this.lastReport = reports[0];
   }
 
+  describe() {
+    console.log('Accounting Department - ID ' + this.id);
+  }
+
   addEmployee(name: string) {
     if (name === 'Max') {
       return;
@@ -105,4 +111,4 @@ console.log(accounting.mostRecentReport);
 accounting.addReport('report2');
 accounting.addEmployee('Tung');
 accounting.printReports();
-console.log(accounting);
+accounting.describe();
