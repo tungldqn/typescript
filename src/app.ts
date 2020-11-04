@@ -21,12 +21,17 @@ type Numeric = number | boolean;
 
 type Universal = Combinable & Numeric;
 
+// function plus(a: number, b: number): number;
+// function plus(a: string, b: string): string;
 function plus(a: Combinable, b: Combinable) {
   if (typeof a === 'string' || typeof b === 'string') {
     return a.toString() + b.toString()
   }
   return a + b;
 }
+
+const result = plus('Tung', 'Max') as string;
+result.split('');
 
 type UnknownEmployee = Employee | Admin;
 
