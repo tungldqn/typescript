@@ -33,6 +33,23 @@ function plus(a: Combinable, b: Combinable) {
 const result = plus('Tung', 'Max') as string;
 result.split('');
 
+const fetchUserData = {
+  id: 'u1',
+  name: 'Max',
+  job: {
+    // title: 'Ceo',
+    description: 'company'
+  }
+}
+
+console.log(fetchUserData?.job?.description);
+
+const string = undefined;
+
+const a = string ?? 'Default';
+
+console.log(a);
+
 type UnknownEmployee = Employee | Admin;
 
 function printEmployeeInformation(emp: UnknownEmployee) {
