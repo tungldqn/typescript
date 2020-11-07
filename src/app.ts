@@ -70,3 +70,20 @@ console.log(textStorage.getItems());
 // objStorage.addItem({ name: 'Min' });
 // objStorage.removeItem(tungObj);
 // console.log(objStorage.getItems());
+
+interface CourseGoal {
+  title: string;
+  description: string;
+  completeUtil: Date;
+}
+
+function createCourseGoal(title: string, description: string, completeUtil: Date): CourseGoal {
+  let courseGoal: Partial<CourseGoal> = {};
+  courseGoal.title = title;
+  courseGoal.description = description;
+  courseGoal.completeUtil = completeUtil;
+  return courseGoal as CourseGoal;
+}
+
+const names: Readonly<string[]> = ['Tung', 'Anna'];
+// names.push('as');
